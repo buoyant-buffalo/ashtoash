@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>timer = 45;
 grappled = false;
-//grapple_timer = 0;
+
+grapple_timer = 1*room_speed;
 
 </string>
           </argument>
@@ -51,7 +52,8 @@ grappled = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timer -= 1
+            <string>--timer;
+++grapple_timer;
 if timer &lt;= 0
     {
     if (not grappled)
@@ -63,8 +65,8 @@ if grappled
     {
     with(obj_player)
     {
-    move_towards_point(obj_grapple.x, obj_grapple.y, obj_player);
-    speed = 10;
+    move_towards_point(obj_grapple.x, obj_grapple.y, (1.5*obj_grapple.grapple_timer/room_speed)*(obj_grapple.grapple_timer/room_speed) );
+    
     }
     //grapple_timer -= 1;
     //if grapple_timer &lt;= 0
