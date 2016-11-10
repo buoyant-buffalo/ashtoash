@@ -9,6 +9,8 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_platform</sprite>
     <sprite>sprites\spr_grapple</sprite>
+    <sprite>sprites\spr_avem</sprite>
+    <sprite>sprites\spr_tile</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
