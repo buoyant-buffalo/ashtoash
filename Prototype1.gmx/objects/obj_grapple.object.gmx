@@ -26,10 +26,36 @@
           <argument>
             <kind>1</kind>
             <string>timer = 45;
-grappled = false;
+hooked = false;
 
 grapple_timer = 1*room_speed;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (obj_player)
+{
+  gravity = 0.5;
+}
 </string>
           </argument>
         </arguments>
@@ -53,64 +79,24 @@ grapple_timer = 1*room_speed;
           <argument>
             <kind>1</kind>
             <string>--timer;
-++grapple_timer;
+//++grapple_timer;
 if timer &lt;= 0
-    {
-    if (not grappled)
-        {
-        instance_destroy();
-        }
-    }
-if grappled
-    {
-    with(obj_player)
-    {
-    move_towards_point(obj_grapple.x, obj_grapple.y, (1.5*obj_grapple.grapple_timer/room_speed)*(obj_grapple.grapple_timer/room_speed) );
-    
-    }
-    //grapple_timer -= 1;
-    //if grapple_timer &lt;= 0
-    /*    {
-            grappled = false;
-            with(obj_player)
-            {
-            jumpspeed = 5;
-            movespeed= 4;
-            }
-        }*/
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_player">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if grappled
-    {
-    grappled = false;
-    with(obj_player)
-        {
-        speed = 0;
-        grav = 0.2;
-        } 
+{
+  if (not hooked)
+  {
     instance_destroy();
-    }
+  }
+}
+
+//pull player towards hook location
+if hooked
+{
+  with(obj_player)
+  {
+    //move_towards_point(obj_grapple.x, obj_grapple.y, (1.5*obj_grapple.grapple_timer/room_speed)*(obj_grapple.grapple_timer/room_speed) );
+    move_towards_point(obj_grapple.x, obj_grapple.y, 10);
+  }
+}
 </string>
           </argument>
         </arguments>
@@ -134,11 +120,11 @@ if grappled
           <argument>
             <kind>1</kind>
             <string>with (obj_player)
-    {
-    grav = 0;
-    }
-grappled = true;
-//grapple_timer = 45;
+{
+  gravity = 0;
+}
+hooked = true;
+
 </string>
           </argument>
         </arguments>

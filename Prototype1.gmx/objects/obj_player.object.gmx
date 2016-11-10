@@ -28,7 +28,6 @@
             <string>// Initialize variables
 jumpspeed = 8;
 movespeed= 3;
-player_grappled = false;
 </string>
           </argument>
         </arguments>
@@ -76,27 +75,6 @@ if(key_jump &amp;&amp; !place_free(x, y+1))
 {
   vspeed = -jumpspeed;
 }
-
-/* horizontal collision
-if (place_meeting(x+hspeed, y, obj_platform))
-{
-  while(!place_meeting(x+sign(hspeed), y, obj_platform))
-  {
-    x += sign(hspeed);
-  }
-  hspeed = 0;
-}
-
-// vertical collision
-if (place_meeting(x, y+vspeed, obj_platform))
-{
-  while(!place_meeting(x, y+sign(vspeed), obj_platform))
-  {
-    y += sign(vspeed);
-  }
-  vspeed = 0;
-}
-*/
 </string>
           </argument>
         </arguments>
@@ -122,13 +100,38 @@ if (place_meeting(x, y+vspeed, obj_platform))
             <string>//Checks if in the air but block is in the way whilst falling
 if (vspeed &gt; 0 &amp;&amp; !place_free(x, y+vspeed))
 {
-    //Places on block without errors
-    move_contact(270)
-
+  //Places on block without errors
+  move_contact(270)
 }
 
 //Sets vspeed back to 0
-vspeed = 0
+speed = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (obj_grapple)
+{
+  instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -155,10 +158,10 @@ vspeed = 0
 {
   grapple = instance_create(x,y,obj_grapple)
   with (grapple) 
-    {
-    move_towards_point(mouse_x,mouse_y, 8)
+  {
+    move_towards_point(mouse_x,mouse_y, 10)
     image_angle=direction
-    }
+  }
 }
 </string>
           </argument>
