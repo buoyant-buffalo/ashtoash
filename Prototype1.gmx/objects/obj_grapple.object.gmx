@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timer = 45
+            <string>timer = 45;
+grappled = false;
+grapple_timer = 0;
 
 </string>
           </argument>
@@ -52,6 +54,58 @@
             <string>timer -= 1
 if timer &lt;= 0
     {
+    if (not grappled)
+        {
+        instance_destroy();
+        }
+    }
+if grappled
+    {
+    with(obj_player)
+    {
+    move_towards_point(obj_grapple.x, obj_grapple.y, obj_player);
+    speed = 10;
+    }
+    //grapple_timer -= 1;
+    //if grapple_timer &lt;= 0
+    /*    {
+            grappled = false;
+            with(obj_player)
+            {
+            jumpspeed = 5;
+            movespeed= 4;
+            }
+        }*/
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if grappled
+    {
+    grappled = false;
+    with(obj_player)
+        {
+        speed = 0;
+        } 
     instance_destroy();
     }
 </string>
@@ -76,7 +130,13 @@ if timer &lt;= 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>with (obj_player)
+    {
+    grav = 0;
+    }
+grappled = true;
+grapple_timer = 45;
+</string>
           </argument>
         </arguments>
       </action>
