@@ -31,6 +31,7 @@ hsp = 0;
 vsp = 0;
 jumpspeed = 5;
 movespeed= 4;
+player_grappled = false;
 </string>
           </argument>
         </arguments>
@@ -54,7 +55,6 @@ movespeed= 4;
           <argument>
             <kind>1</kind>
             <string>
-
 if (vsp &lt; 10)
 {
 vsp += grav;
@@ -157,6 +157,38 @@ x += movespeed;
 if place_meeting(x - movespeed, y, obj_platform) == false
 {
 x -= movespeed;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>grapple=instance_create(x,y,obj_grapple)
+with (grapple) 
+{
+var tempx
+var tempy
+tempx = mouse_x
+tempy = mouse_y
+move_towards_point(tempx,tempy,5)
+image_angle=direction
 }
 </string>
           </argument>
