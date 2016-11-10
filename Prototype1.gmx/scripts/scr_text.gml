@@ -1,5 +1,9 @@
-//scr_text("Text", x, y);
-
+///scr_text("Text", spd, x, y);
+// where spd is the speed the text is shown
+// x and y is the position on the map it will be shown
+// 0,0 is top left
+// 0, 1080 (ish) is bottom left
+// 1920 (ish), 0 is top right
 txt = instance_create(argument2, argument3, obj_text);
 
 with (txt)
