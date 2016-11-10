@@ -183,11 +183,7 @@ x -= movespeed;
             <string>grapple=instance_create(x,y,obj_grapple)
 with (grapple) 
 {
-var tempx
-var tempy
-tempx = mouse_x
-tempy = mouse_y
-move_towards_point(tempx,tempy,5)
+move_towards_point(mouse_x,mouse_y,5)
 image_angle=direction
 }
 </string>

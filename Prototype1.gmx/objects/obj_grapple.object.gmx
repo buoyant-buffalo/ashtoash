@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>timer = 45;
 grappled = false;
-grapple_timer = 0;
+//grapple_timer = 0;
 
 </string>
           </argument>
@@ -105,6 +105,7 @@ if grappled
     with(obj_player)
         {
         speed = 0;
+        grav = 0.2;
         } 
     instance_destroy();
     }
@@ -135,7 +136,7 @@ if grappled
     grav = 0;
     }
 grappled = true;
-grapple_timer = 45;
+//grapple_timer = 45;
 </string>
           </argument>
         </arguments>
