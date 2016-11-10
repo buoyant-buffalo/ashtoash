@@ -26,11 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>// Initialize variables
-grav = 0.2
-hsp = 0;
-vsp = 0;
-jumpspeed = 5;
-movespeed= 4;
+jumpspeed = 8;
+movespeed= 3;
 player_grappled = false;
 </string>
           </argument>
@@ -55,42 +52,83 @@ player_grappled = false;
           <argument>
             <kind>1</kind>
             <string>// get player input
-key_left = -keyboard_check(ord("A"));
+key_left = keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
 key_jump = keyboard_check(ord("W"));
 
-// react to inputs
-move = key_left + key_right;
-hsp = move * movespeed;
-if (vsp &lt; 10) vsp += grav;
-
-if (place_meeting(x, y+1, obj_platform))
+// horizontal movement
+if(key_left &amp;&amp; place_free(x-movespeed, y))
 {
-  vsp = key_jump * -jumpspeed;
+  x -= movespeed;
 }
 
-// horizontal collision
-if (place_meeting(x+hsp, y, obj_platform))
+if(key_right &amp;&amp; place_free(x+movespeed, y))
 {
-  while(!place_meeting(x+sign(hsp), y, obj_platform))
+  x += movespeed;
+}
+
+// react to gravity in the air
+if (place_free(x, y+1)) gravity = 0.5;
+else gravity = 0;
+
+// jump if key press and player is not grounded
+if(key_jump &amp;&amp; !place_free(x, y+1))
+{
+  vspeed = -jumpspeed;
+}
+
+/* horizontal collision
+if (place_meeting(x+hspeed, y, obj_platform))
+{
+  while(!place_meeting(x+sign(hspeed), y, obj_platform))
   {
-    x += sign(hsp);
+    x += sign(hspeed);
   }
-  hsp = 0;
+  hspeed = 0;
 }
 
 // vertical collision
-if (place_meeting(x, y+vsp, obj_platform))
+if (place_meeting(x, y+vspeed, obj_platform))
 {
-  while(!place_meeting(x, y+sign(vsp), obj_platform))
+  while(!place_meeting(x, y+sign(vspeed), obj_platform))
   {
-    y += sign(vsp);
+    y += sign(vspeed);
   }
-  vsp = 0;
+  vspeed = 0;
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_platform">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Checks if in the air but block is in the way whilst falling
+if (vspeed &gt; 0 &amp;&amp; !place_free(x, y+vspeed))
+{
+    //Places on block without errors
+    move_contact(270)
+
 }
 
-x += hsp;
-y += vsp;
+//Sets vspeed back to 0
+vspeed = 0
 </string>
           </argument>
         </arguments>
