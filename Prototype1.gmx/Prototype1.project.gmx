@@ -30,7 +30,7 @@
     <object>objects\obj_grappleFixed</object>
     <objects name="My Dialogues">
       <object>objects\obj_dia_show0</object>
-      <object>objects\obj_dia_test</object>
+      <object>objects\obj_dia_test0</object>
     </objects>
     <objects name="Dialogue Template">
       <object>objects\obj_text_background</object>

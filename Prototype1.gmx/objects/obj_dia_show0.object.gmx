@@ -51,42 +51,47 @@ clicks = 0;
             <kind>1</kind>
             <string>/// dialogue switching
 
-    if(clicks == 0)
-    {
-        if(!drawn)
-        {
-            drawn = true;
-            scr_text(0.5, 165.5, 14, "Avem:", "More falling stones! Are they from the tremors?", c_red, c_white);
-            
-        }
+if(clicks == 0) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Player:", "Hey! Stop!", c_blue, c_white);   
     }
-    else if(clicks == 1)
-    {
-        if(!drawn)
-        {
-            scr_text(0.5, 165.5, 14, "???:", "I dont't know, personally", c_blue, c_white);
-            drawn = true;
-        }
+}
+else if(clicks == 1) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Avem:", "What's up?", c_red, c_white);
     }
-    else if (clicks == 2)
-    {
-        if(!drawn)
-        {
-            scr_text(0.5, 165.5, 14, "Avem:", "Stay near me", c_red, c_white);
-            drawn = true;
-        }
+}
+else if (clicks == 2) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Player:", "You made me able to fly?", c_blue, c_white); 
     }
-    else if (clicks &gt;= 3)
-    {
-        // give back player control
-        obj_player.dialogue_paused = false;
-        instance_destroy();
-        if(!drawn)
-        {
-//            instance_activate_object(obj_player);
-            drawn = true;
-        }
+}
+else if (clicks == 3) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Avme:", "Yup", c_red, c_white); 
     }
+}
+else if (clicks == 4) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Player:", "How", c_blue, c_white); 
+    }
+}
+else if (clicks == 5) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Avem:", "I'm a phoenix", c_red, c_white); 
+    }
+}
+else if (clicks == 6) {
+    if(!drawn) { drawn = true;
+        scr_text(0.5, 165.5, 17, "Player:", "I can see that. But why?", c_blue, c_white); 
+    }
+}
+else if (clicks &gt;= 7) {
+    // give back player control
+    obj_player.dialogue_paused = false;
+    instance_destroy();
+    if(!drawn) { drawn = true; }
+}
 </string>
           </argument>
         </arguments>
