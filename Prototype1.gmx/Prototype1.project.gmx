@@ -28,6 +28,7 @@
     <object>objects\obj_grapple</object>
     <object>objects\obj_text</object>
     <object>objects\obj_grappleHooked</object>
+    <object>objects\obj_text_background</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
