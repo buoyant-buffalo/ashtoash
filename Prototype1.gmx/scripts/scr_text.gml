@@ -11,11 +11,15 @@ arg1 = x coord          arg5 = color of speaker
 arg2 = y coord          arg6 = color of text
 arg3 = speaker
 */
-speaker = instance_create(argument1, argument2, obj_text);
-text = instance_create(argument1, argument2+(1.5*font_get_size(fnt)), obj_text);
-
+myX = view_xview[0];
+myY = view_yview[0];
+speaker = instance_create(myX + argument1, myY + argument2, obj_text);
+text = instance_create(myX + argument1, myY + argument2+(1.5*font_get_size(fnt)), obj_text);
 // we dont care where this one is created?
-text_background = instance_create(0, 0, obj_text_background);
+text_background = instance_create(myX + 81.5, myY + 10, obj_text_background);
+//instance_create()
+
+
 
 
 with (speaker)
