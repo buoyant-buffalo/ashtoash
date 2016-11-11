@@ -25,9 +25,9 @@
   <objects name="objects">
     <object>objects\obj_platform</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_grapple</object>
+    <object>objects\obj_grappleMotion</object>
     <object>objects\obj_text</object>
-    <object>objects\obj_grappleHooked</object>
+    <object>objects\obj_grappleFixed</object>
     <object>objects\obj_text_background</object>
   </objects>
   <rooms name="rooms">

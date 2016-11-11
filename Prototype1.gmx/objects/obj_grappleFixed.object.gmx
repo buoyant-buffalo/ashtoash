@@ -54,7 +54,7 @@
             <string>with(obj_player)
 {
   //move_towards_point(obj_grapple.x, obj_grapple.y, (1.5*obj_grapple.grapple_timer/room_speed)*(obj_grapple.grapple_timer/room_speed) );
-  move_towards_point(obj_grappleHooked.x, obj_grappleHooked.y, 10);
+  move_towards_point(obj_grappleFixed.x, obj_grappleFixed.y, 8);
 }
 </string>
           </argument>
@@ -79,9 +79,9 @@
           <argument>
             <kind>1</kind>
             <string>with (obj_player)
-  {
+{
   speed = 0;
-  }
+}
 </string>
           </argument>
         </arguments>

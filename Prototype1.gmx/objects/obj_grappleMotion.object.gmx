@@ -53,9 +53,10 @@ hooked = false;
           <argument>
             <kind>1</kind>
             <string>if hooked
-  {
-  instance_create(x,y,obj_grappleHooked)
-  }
+{
+  grapple = instance_create(x,y,obj_grappleFixed);
+  with (grapple) image_angle = direction;
+}
 </string>
           </argument>
         </arguments>

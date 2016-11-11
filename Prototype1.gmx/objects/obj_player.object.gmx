@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Initialize variables
-jumpspeed = 8;
+jumpspeed = 7;
 movespeed= 3;
 </string>
           </argument>
@@ -67,7 +67,7 @@ if(key_right &amp;&amp; place_free(x+movespeed, y))
 }
 
 // react to gravity in the air
-if (place_free(x, y+1)) gravity = 0.5;
+if (place_free(x, y+1)) gravity = 0.3;
 else gravity = 0;
 
 // jump if key press and player is not grounded
@@ -105,7 +105,7 @@ if (vspeed &gt; 0 &amp;&amp; !place_free(x, y+vspeed))
 }
 
 //Sets vspeed back to 0
-speed = 0
+vspeed = 0
 </string>
           </argument>
         </arguments>
@@ -128,11 +128,11 @@ speed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_grapple)
+            <string>with (obj_grappleMotion)
 {
   instance_destroy();
 }
-with (obj_grappleHooked)
+with (obj_grappleFixed)
 {
   instance_destroy();
 }
@@ -158,12 +158,12 @@ with (obj_grappleHooked)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if not instance_exists(obj_grapple)
+            <string>if not instance_exists(obj_grappleMotion)
 {
-  grapple = instance_create(x,y,obj_grapple)
+  grapple = instance_create(x,y,obj_grappleMotion)
   with (grapple) 
   {
-    move_towards_point(mouse_x,mouse_y, 10)
+    move_towards_point(mouse_x,mouse_y, 8)
     image_angle=direction
   }
 }
