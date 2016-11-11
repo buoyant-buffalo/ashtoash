@@ -41,9 +41,9 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room0</room>
     <room>rooms\rm_1v2</room>
     <room>rooms\rm_1</room>
-    <room>rooms\room0</room>
     <room>rooms\room2</room>
   </rooms>
   <help>
