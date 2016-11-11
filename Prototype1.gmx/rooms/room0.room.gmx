@@ -276,6 +276,7 @@
     <instance objName="obj_platform" x="1648" y="176" name="inst_A0B97EEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform" x="1664" y="176" name="inst_EFF1A924" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dia_test" x="336" y="144" name="inst_C6E3F70C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dia_test" x="736" y="208" name="inst_39E0BB3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x, y, obj_dia_show0);
+            <string>/// deactivate player, show dialogue 
+
+//instance_deactivate_object(obj_player);
+obj_player.dialogue_paused = true;
+
+instance_create(x, y, obj_dia_show0);
+
 instance_destroy();
 </string>
           </argument>
