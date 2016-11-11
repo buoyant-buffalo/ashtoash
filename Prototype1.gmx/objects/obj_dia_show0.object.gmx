@@ -78,6 +78,8 @@ clicks = 0;
     }
     else if (clicks &gt;= 3)
     {
+        // give back player control
+        obj_player.dialogue_paused = false;
         instance_destroy();
         if(!drawn)
         {

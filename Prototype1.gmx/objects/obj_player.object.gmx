@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Initialize variables
+            <string>/// Initialize variables
 jumpspeed = 7;
 movespeed= 3;
+
+dialogue_paused = false;
 </string>
           </argument>
         </arguments>
@@ -50,10 +52,25 @@ movespeed= 3;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// get player input
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
-key_jump = keyboard_check(ord("W"));
+            <string>
+
+
+// get player input
+
+if (!dialogue_paused)
+{
+
+    key_left = keyboard_check(ord("A"));
+    key_right = keyboard_check(ord("D"));
+    key_jump = keyboard_check(ord("W"));
+
+}
+else
+{
+    key_left = 0;
+    key_right = 0;
+    key_jump = 0;
+}
 
 // horizontal movement
 if(key_left &amp;&amp; place_free(x-movespeed, y))
@@ -66,15 +83,17 @@ if(key_right &amp;&amp; place_free(x+movespeed, y))
   x += movespeed;
 }
 
-// react to gravity in the air
-if (place_free(x, y+1)) gravity = 0.3;
-else gravity = 0;
-
 // jump if key press and player is not grounded
 if(key_jump &amp;&amp; !place_free(x, y+1))
 {
   vspeed = -jumpspeed;
 }
+
+// react to gravity in the air
+if (place_free(x, y+1)) gravity = 0.3;
+else gravity = 0;
+
+
 </string>
           </argument>
         </arguments>
@@ -158,14 +177,19 @@ with (obj_grappleFixed)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if not instance_exists(obj_grappleMotion)
+            <string>if(!dialogue_paused)
 {
-  grapple = instance_create(x,y,obj_grappleMotion)
-  with (grapple) 
-  {
-    move_towards_point(mouse_x,mouse_y, 8)
-    image_angle=direction
-  }
+
+    if not instance_exists(obj_grappleMotion)
+    {
+      grapple = instance_create(x,y,obj_grappleMotion)
+      with (grapple) 
+      {
+        move_towards_point(mouse_x,mouse_y, 8)
+        image_angle=direction
+      }
+    }
+
 }
 </string>
           </argument>
