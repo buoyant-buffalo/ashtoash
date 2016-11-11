@@ -164,6 +164,7 @@
     <instance objName="obj_platform" x="704" y="176" name="inst_4A461D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="96" y="256" name="inst_35B8BBC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_avem" x="176" y="192" name="inst_82456EB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dia_test0" x="96" y="240" name="inst_7991792C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background0" x="0" y="304" w="16" h="16" xo="0" yo="0" id="10000040" name="inst_977B8264" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

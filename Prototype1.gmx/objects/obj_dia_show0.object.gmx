@@ -49,66 +49,131 @@ clicks = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// dialogue switching
-/*
-if(clicks == 0) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Player:", "Hey! Stop!", c_blue, c_white);   
-    }
-}
-else if(clicks == 1) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Avem:", "What's up?", c_red, c_white);
-    }
-}
-else if (clicks == 2) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Player:", "You made me able to fly?", c_blue, c_white); 
-    }
-}
-else if (clicks == 3) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Avme:", "Yup", c_red, c_white); 
-    }
-}
-else if (clicks == 4) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Player:", "How", c_blue, c_white); 
-    }
-}
-else if (clicks == 5) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Avem:", "I'm a phoenix", c_red, c_white); 
-    }
-}
-else if (clicks == 6) {
-    if(!drawn) { drawn = true;
-        scr_text(0.5, 165.5, 17, "Player:", "I can see that. But why?", c_blue, c_white); 
-    }
-}
-else if (clicks &gt;= 7) {
-    // give back player control
-    obj_player.dialogue_paused = false;
-    instance_destroy();
-    if(!drawn) { drawn = true; }
-}
-*/
-if(clicks == 0) {
+            <string>if(clicks == 0) {
   if(!drawn) { drawn = true;
     scr_text(0.5, 165.5, 17, "Player:", "Hey. Stop!", c_blue, c_white);
   }
 }
 else if(clicks == 1) {
   if(!drawn) { drawn = true;
-    scr_text(0.5, 165.5, 17, "Avem", "What's up", c_red, c_white);
+    scr_text(0.5, 165.5, 17, "Avem", "What's up.", c_red, c_white);
   }
 }
-else if (clicks &gt; 1) {
+else if(clicks == 2) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "I can fly!", c_blue, c_white);
+  }
+}
+else if(clicks == 3) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Yup!", c_red, c_white);
+  }
+}
+else if(clicks == 4) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "How?", c_blue, c_white);
+  }
+}
+else if(clicks == 5) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "I'm a phoenix.", c_red, c_white);
+  }
+}
+else if(clicks == 6) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "I can see that.", c_blue, c_white);
+  }
+}
+else if(clicks == 7) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Why?", c_blue, c_white);
+  }
+}
+else if(clicks == 8) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "What's going on?!", c_blue, c_white);
+  }
+}
+else if(clicks == 9) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "There was a cave-in.", c_red, c_white);
+  }
+}
+else if(clicks == 10) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Thank you.", c_blue, c_white);
+  }
+}
+else if(clicks == 11) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Why was there a cave-in?", c_blue, c_white);
+  }
+}
+else if(clicks == 12) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Giving powers takes energy.", c_red, c_white);
+  }
+}
+else if(clicks == 13) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "We shook the mountain.", c_red, c_white);
+  }
+}
+else if(clicks == 14) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "So the mountain shook back.", c_red, c_white);
+  }
+}
+else if(clicks == 15) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Sorry Mountain!", c_red, c_white);
+  }
+}
+else if(clicks == 16) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "...", c_blue, c_white);
+  }
+}
+else if(clicks == 17) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Oh well.", c_red, c_white);
+  }
+}
+else if(clicks == 18) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "At least we're okay.", c_red, c_white);
+  }
+}
+else if(clicks == 19) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Yeah that's great.", c_blue, c_white);
+  }
+}
+else if(clicks == 20) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "But I need to get out of here.", c_blue, c_white);
+  }
+}
+else if(clicks == 21) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Me too.", c_red, c_white);
+  }
+}
+else if(clicks == 22) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "Go up there. I'll follow you.", c_red, c_white);
+  }
+}
+else if(clicks == 23) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Alright then.", c_blue, c_white);
+  }
+}
+else if (clicks &gt; 23) {
   obj_player.dialogue_paused = false;
   instance_destroy()
   if(!drawn) { drawn = true; }
 }
-
 </string>
           </argument>
         </arguments>
