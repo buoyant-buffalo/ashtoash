@@ -12,6 +12,7 @@
     <sprite>sprites\spr_avem</sprite>
     <sprite>sprites\spr_tile</sprite>
     <sprite>sprites\spr_dialogueBox</sprite>
+    <sprite>sprites\spr_grappleHooked</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -26,6 +27,7 @@
     <object>objects\obj_player</object>
     <object>objects\obj_grapple</object>
     <object>objects\obj_text</object>
+    <object>objects\obj_grappleHooked</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
