@@ -26,10 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize variables
-jumpspeed = 7;
+jumpspeed = 4;
 movespeed= 3;
-
-dialogue_paused = false;
+grapplespeed = 5;
 </string>
           </argument>
         </arguments>
@@ -52,46 +51,62 @@ dialogue_paused = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-
-// get player input
-
-if (!dialogue_paused)
-{
-
-    key_left = keyboard_check(ord("A"));
-    key_right = keyboard_check(ord("D"));
-    key_jump = keyboard_check(ord("W"));
-
-}
-else
-{
-    key_left = 0;
-    key_right = 0;
-    key_jump = 0;
-}
+            <string>// get player input
+key_left = keyboard_check(ord("A"));
+key_right = keyboard_check(ord("D"));
+key_jump = keyboard_check(ord("W"));
 
 // horizontal movement
-if(key_left &amp;&amp; place_free(x-movespeed, y))
+if(key_left)
 {
-  x -= movespeed;
+  repeat(movespeed)
+  {
+    if (place_free(x-1,y)) { x -= 1; }
+  }
+}
+if(key_right)
+{
+  repeat(movespeed)
+  {
+    if (place_free(x+1,y)) { x += 1; }
+  }
 }
 
-if(key_right &amp;&amp; place_free(x+movespeed, y))
+// gravity
+if (place_free(x,y+1)) { gravity = 0.3; }
+else { gravity = 0; }
+
+// jump if key press and player is grounded
+if(key_jump)
 {
-  x += movespeed;
+  repeat(jumpspeed)
+  {
+    if (place_free(x,y-1)) { y -= 1; }
+  }
 }
 
-// jump if key press and player is not grounded
-if(key_jump &amp;&amp; !place_free(x, y+1))
+// move towards grapple
+if (instance_number(obj_grapple) = 1)
 {
-  vspeed = -jumpspeed;
+  if (obj_grapple.alarm[0] &lt; 1) { gravity = 0; }
+  pd = point_direction(x, y, obj_grapple.x, obj_grapple.y);
+
+
+  // movement twards grapple
+  repeat(grapplespeed)
+  {
+    if (place_free(x+lengthdir_x(1, pd), y))
+      x += lengthdir_x(1, pd);
+    if (place_free(x, y+lengthdir_y(1, pd)))
+      y += lengthdir_y(1, pd);
+  }
+
+  // smoothing
+  speed -= 0.2;
+  if (speed &lt;= 0)
+    speed = 0;
 }
 
-// react to gravity in the air
-if (place_free(x, y+1)) gravity = 0.3;
-else gravity = 0;
 
 
 </string>
@@ -116,15 +131,9 @@ else gravity = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Checks if in the air but block is in the way whilst falling
-if (vspeed &gt; 0 &amp;&amp; !place_free(x, y+vspeed))
-{
-  //Places on block without errors
-  move_contact(270)
-}
-
-//Sets vspeed back to 0
-vspeed = 0
+            <string>///collisions
+move_contact_solid(270, speed);
+speed = 0;
 </string>
           </argument>
         </arguments>
@@ -147,14 +156,15 @@ vspeed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_grappleMotion)
+            <string>/*with (obj_grappleMotion)
 {
   instance_destroy();
 }
 with (obj_grappleFixed)
 {
   instance_destroy();
-}
+}*/
+with (obj_grapple) { instance_destroy(); }
 </string>
           </argument>
         </arguments>
@@ -177,20 +187,23 @@ with (obj_grappleFixed)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!dialogue_paused)
+            <string>/*if not instance_exists(obj_grappleMotion)
 {
+  grapple = instance_create(x,y,obj_grappleMotion)
+  with (grapple) 
+  {
+    move_towards_point(mouse_x,mouse_y, 8)
+    image_angle=direction
+  }
+}*/
 
-    if not instance_exists(obj_grappleMotion)
-    {
-      grapple = instance_create(x,y,obj_grappleMotion)
-      with (grapple) 
-      {
-        move_towards_point(mouse_x,mouse_y, 8)
-        image_angle=direction
-      }
-    }
+with (obj_grapple) { instance_destroy(); }
 
-}
+// create a new grapple and move it to contact solid in mouse direction
+aim = point_direction(x, y, mouse_x, mouse_y);
+grapple = instance_create(x+lengthdir_x(13, aim), y+lengthdir_y(13, aim), obj_grapple);
+grapple.aim = aim;
+with (grapple) { move_contact_solid(obj_player.aim, -1); } 
 </string>
           </argument>
         </arguments>
