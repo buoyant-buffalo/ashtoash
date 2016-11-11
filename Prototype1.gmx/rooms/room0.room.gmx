@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>// 14 pixels from the top
+scr_text(0.5, 165.5, 14, "Avem:", "1-2-3-4-5-1-2-3-4-5-1-2-3-4-5-1-2-3-4-5-", c_blue, c_white);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
