@@ -16,8 +16,12 @@
     <sprite>sprites\sprite7</sprite>
     <sprite>sprites\spr_pixel</sprite>
     <sprite>sprites\spr_rope</sprite>
+    <sprite>sprites\spr_solidPlatform</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+    <background>background\bck_lvl1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_text.gml</script>
@@ -32,7 +36,7 @@
     <object>objects\obj_grappleFixed</object>
     <objects name="My Dialogues">
       <object>objects\obj_dia_show0</object>
-      <object>objects\obj_dia_test</object>
+      <object>objects\obj_dia_test0</object>
     </objects>
     <objects name="Dialogue Template">
       <object>objects\obj_text_background</object>
@@ -43,6 +47,10 @@
   <rooms name="rooms">
     <room>rooms\room0</room>
     <room>rooms\rm_1</room>
+    <room>rooms\rm_1v2</room>
+    <room>rooms\rm_2v2</room>
+    <room>rooms\rm_1</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
