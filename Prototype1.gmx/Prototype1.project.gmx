@@ -11,6 +11,7 @@
     <sprite>sprites\spr_grapple</sprite>
     <sprite>sprites\spr_avem</sprite>
     <sprite>sprites\spr_tile</sprite>
+    <sprite>sprites\spr_dialogueBox</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
