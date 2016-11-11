@@ -25,8 +25,66 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// initialize the depth
-depth = -1000;
+            <string>drawn = false;
+clicks = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// dialogue switching
+
+    if(clicks == 0)
+    {
+        if(!drawn)
+        {
+            drawn = true;
+            scr_text(0.5, 165.5, 14, "Avem:", "More falling stones! Are they from the tremors?", c_red, c_white);
+            
+        }
+    }
+    else if(clicks == 1)
+    {
+        if(!drawn)
+        {
+            scr_text(0.5, 165.5, 14, "???:", "I dont't know, personally", c_blue, c_white);
+            drawn = true;
+        }
+    }
+    else if (clicks == 2)
+    {
+        if(!drawn)
+        {
+            scr_text(0.5, 165.5, 14, "Avem:", "Stay near me", c_red, c_white);
+            drawn = true;
+        }
+    }
+    else if (clicks &gt;= 3)
+    {
+        instance_destroy();
+        if(!drawn)
+        {
+//            instance_activate_object(obj_player);
+            drawn = true;
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -49,36 +107,9 @@ depth = -1000;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///destroy self
-
-instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draws the background dialogue box
-// 81.5 centers the dialogue box 
-// 10 is the padding from the top of the screen
-draw_sprite(spr_dialogueBox, 10, 81.5, 10);
-
+            <string>++clicks;
+show_debug_message("Clicks: " + string(clicks));
+drawn = false;
 </string>
           </argument>
         </arguments>

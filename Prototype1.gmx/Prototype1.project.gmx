@@ -13,6 +13,7 @@
     <sprite>sprites\spr_tile</sprite>
     <sprite>sprites\spr_dialogueBox</sprite>
     <sprite>sprites\spr_grappleHooked</sprite>
+    <sprite>sprites\sprite7</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -26,9 +27,15 @@
     <object>objects\obj_platform</object>
     <object>objects\obj_player</object>
     <object>objects\obj_grappleMotion</object>
-    <object>objects\obj_text</object>
     <object>objects\obj_grappleFixed</object>
-    <object>objects\obj_text_background</object>
+    <objects name="My Dialogues">
+      <object>objects\obj_dia_show0</object>
+      <object>objects\obj_dia_test</object>
+    </objects>
+    <objects name="Dialogue Template">
+      <object>objects\obj_text_background</object>
+      <object>objects\obj_text</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
