@@ -29,6 +29,8 @@
 jumpspeed = 4;
 movespeed= 3;
 grapplespeed = 5;
+
+dialogue_paused = false;
 </string>
           </argument>
         </arguments>
@@ -52,10 +54,19 @@ grapplespeed = 5;
           <argument>
             <kind>1</kind>
             <string>// get player input
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
-key_jump = keyboard_check(ord("W"));
-
+if(!dialogue_paused) 
+{
+    key_left = keyboard_check(ord("A"));
+    key_right = keyboard_check(ord("D"));
+    key_jump = keyboard_check(ord("W"));
+}
+else
+{
+    key_left = 0;
+    key_right = 0;
+    key_jump = 0;
+}
+    
 // horizontal movement
 if(key_left)
 {
@@ -196,14 +207,16 @@ with (obj_grapple) { instance_destroy(); }
     image_angle=direction
   }
 }*/
-
-with (obj_grapple) { instance_destroy(); }
-
-// create a new grapple and move it to contact solid in mouse direction
-aim = point_direction(x, y, mouse_x, mouse_y);
-grapple = instance_create(x+lengthdir_x(13, aim), y+lengthdir_y(13, aim), obj_grapple);
-grapple.aim = aim;
-with (grapple) { move_contact_solid(obj_player.aim, -1); } 
+if(!dialogue_paused) 
+{
+    with (obj_grapple) { instance_destroy(); }
+    
+    // create a new grapple and move it to contact solid in mouse direction
+    aim = point_direction(x, y, mouse_x, mouse_y);
+    grapple = instance_create(x+lengthdir_x(13, aim), y+lengthdir_y(13, aim), obj_grapple);
+    grapple.aim = aim;
+    with (grapple) { move_contact_solid(obj_player.aim, -1); } 
+}
 </string>
           </argument>
         </arguments>

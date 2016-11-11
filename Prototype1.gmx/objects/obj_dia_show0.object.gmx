@@ -50,7 +50,7 @@ clicks = 0;
           <argument>
             <kind>1</kind>
             <string>/// dialogue switching
-
+/*
 if(clicks == 0) {
     if(!drawn) { drawn = true;
         scr_text(0.5, 165.5, 17, "Player:", "Hey! Stop!", c_blue, c_white);   
@@ -92,6 +92,23 @@ else if (clicks &gt;= 7) {
     instance_destroy();
     if(!drawn) { drawn = true; }
 }
+*/
+if(clicks == 0) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Player:", "Hey. Stop!", c_blue, c_white);
+  }
+}
+else if(clicks == 1) {
+  if(!drawn) { drawn = true;
+    scr_text(0.5, 165.5, 17, "Avem", "What's up", c_red, c_white);
+  }
+}
+else if (clicks &gt; 1) {
+  obj_player.dialogue_paused = false;
+  instance_destroy()
+  if(!drawn) { drawn = true; }
+}
+
 </string>
           </argument>
         </arguments>
