@@ -22,6 +22,15 @@
     <background>background\background0</background>
     <background>background\bck_lvl1</background>
     <background>background\bck_cavePlatform</background>
+    <background>background\stone_floor_centre</background>
+    <background>background\stone_floor_left</background>
+    <background>background\stone_floor_right</background>
+    <background>background\stone_roof_centre</background>
+    <background>background\stone_roof_left_corner</background>
+    <background>background\stone_roof_right_corner</background>
+    <background>background\stone_wall_left</background>
+    <background>background\stone_wall_right</background>
+    <background>background\black</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
